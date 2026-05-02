@@ -52,7 +52,8 @@ const products = [
     colors: ["White"],
     sizes: ["M", "L"],
     image: "https://picsum.photos/300?6"
-  }
+  },
+  
 ];
 
 export default products;
