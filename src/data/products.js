@@ -1,3 +1,5 @@
+import tshirt1 from "../assets/t-shirt.jpg";
+
 const products = [
   {
     id: 1,
@@ -6,7 +8,7 @@ const products = [
     category: "Marathi",
     colors: ["Black", "White"],
     sizes: ["S", "M", "L", "XL"],
-    image: "https://picsum.photos/300?1"
+    image: tshirt1
   },
   {
     id: 2,
@@ -15,7 +17,7 @@ const products = [
     category: "Marathi",
     colors: ["Red", "Black"],
     sizes: ["M", "L"],
-    image: "https://picsum.photos/300?2"
+    image: tshirt1
   },
   {
     id: 3,
@@ -24,7 +26,7 @@ const products = [
     category: "Gym",
     colors: ["Black"],
     sizes: ["L", "XL"],
-    image: "https://picsum.photos/300?3"
+    image: tshirt1
   },
   {
     id: 4,
@@ -33,7 +35,7 @@ const products = [
     category: "Gym",
     colors: ["Grey"],
     sizes: ["M", "L"],
-    image: "https://picsum.photos/300?4"
+    image: tshirt1
   },
   {
     id: 5,
@@ -42,7 +44,7 @@ const products = [
     category: "Friends",
     colors: ["Blue"],
     sizes: ["S", "M"],
-    image: "https://picsum.photos/300?5"
+    image: tshirt1
   },
   {
     id: 6,
@@ -51,9 +53,26 @@ const products = [
     category: "Friends",
     colors: ["White"],
     sizes: ["M", "L"],
-    image: "https://picsum.photos/300?6"
+    image: tshirt1
   },
-  
+  {
+  id: 7,
+  name: "Attitude King",
+  price: 349,
+  category: "Marathi",
+  colors: ["Black"],
+  sizes: ["M", "L"],
+  image: tshirt1
+},
+{
+  id: 8,
+  name: "Minimal Vibe",
+  price: 299,
+  category: "Friends",
+  colors: ["White"],
+  sizes: ["S", "M"],
+  image: tshirt1
+}
 ];
 
 export default products;

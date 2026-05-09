@@ -2,7 +2,11 @@ import React from "react";
 
 const ProductCard = ({ product }) => {
   const handleOrder = () => {
-    const message = `Hi, I want to order:\nT-shirt: ${product.name}\nPrice: ₹${product.price}`;
+  const message = `Hi, I want to order:
+    T-shirt: ${product.name}
+    Price: ₹${product.price}
+    Size: M
+    Color: Black`;
 
     window.open(`https://wa.me/919172271693?text=${encodeURIComponent(message)}`);
   };
@@ -17,6 +21,11 @@ const ProductCard = ({ product }) => {
       <div className="card-body">
         <h3>{product.name}</h3>
         <p className="price">₹{product.price}</p>
+
+        <div className="meta">
+          <span>{product.colors.join(", ")}</span>
+          <span>{product.sizes.join(", ")}</span>
+        </div>
 
         <button className="whatsapp-btn" onClick={handleOrder}>
           Order Now

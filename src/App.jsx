@@ -41,10 +41,10 @@ function App() {
           </div>
 
           <div className="hero-image">
-          <img
-            src="https://picsum.photos/600/700?fashion"
-            alt="T-shirt showcase"
-          />
+            <img
+                src={products[0].image}
+                alt="Featured T-shirt"
+              />
         </div>
       {/* 
                 <div className="hero-image">
@@ -63,12 +63,9 @@ function App() {
         <section id="browse-section" className="browse">
           <div className="browse-header">
             <div>
-              <h2>Explore by category</h2>
-              <p className="browse-copy">
-                Discover designs crafted for your vibe.
-              </p>
+              <h2 style={{color: "#333"}}>Explore by category</h2>
             </div>
-            <div className="product-count">{filteredProducts.length} designs</div>
+            {/* <div className="product-count">{filteredProducts.length} designs</div> */}
           </div>
 
           <div className="categories">
