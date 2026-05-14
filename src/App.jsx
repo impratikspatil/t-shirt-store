@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import products from "./data/products";
 import ProductCard from "./components/ProductCard";
 import "./App.css";
+import ProductModal from "./components/ProductModal";
 
 function App() {
   const categories = ["All", ...new Set(products.map((product) => product.category))];
   const [activeCategory, setActiveCategory] = useState("All");
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const filteredProducts =
     activeCategory === "All"
@@ -62,10 +64,15 @@ function App() {
 
         <section id="browse-section" className="browse">
           <div className="browse-header">
-            <div>
-              <h2 style={{color: "#333"}}>Explore by category</h2>
+            <p className="browse-label">NEW DROPS</p>
+
+            <div className="browse-top">
+              <h2>Explore Collections</h2>
+
+              <p className="browse-subtext">
+                Premium oversized graphics and statement pieces curated for every vibe.
+              </p>
             </div>
-            {/* <div className="product-count">{filteredProducts.length} designs</div> */}
           </div>
 
           <div className="categories">
@@ -82,10 +89,69 @@ function App() {
 
           <div className="grid">
             {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard
+                key={product.id}
+                product={product}
+                onClick={() => setSelectedProduct(product)}
+              />
             ))}
           </div>
+          {selectedProduct && (
+  <ProductModal
+    product={selectedProduct}
+    onClose={() => setSelectedProduct(null)}
+  />
+)}
         </section>
+
+        <footer className="footer">
+  <div className="footer-top">
+
+    <div className="footer-brand">
+      <div className="footer-logo">TS</div>
+
+      <div>
+        <h3>T-Shirt Brand</h3>
+
+        <p>
+          Premium oversized graphic T-shirts designed
+          for every vibe.
+        </p>
+      </div>
+    </div>
+
+    <div className="footer-links">
+      <h4>Collections</h4>
+
+      <a href="#">Marathi</a>
+      <a href="#">Gym</a>
+      <a href="#">Friends</a>
+    </div>
+
+    <div className="footer-links">
+      <h4>Connect</h4>
+
+      <a href="https://wa.me/919172271693">
+        WhatsApp
+      </a>
+
+      <a href="#">
+        Instagram
+      </a>
+
+      <a href="#">
+        Contact
+      </a>
+    </div>
+
+  </div>
+
+  <div className="footer-bottom">
+    <p>© 2026 T-Shirt Brand. All rights reserved.</p>
+
+    <p>Made with ❤️ in India</p>
+  </div>
+</footer>
       </div>
     </div>
   );

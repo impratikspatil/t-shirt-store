@@ -1,21 +1,30 @@
 import React from "react";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onClick }) => {
+
   const handleOrder = () => {
   const message = `Hi, I want to order:
-    T-shirt: ${product.name}
-    Price: ₹${product.price}
-    Size: M
-    Color: Black`;
 
-    window.open(`https://wa.me/919172271693?text=${encodeURIComponent(message)}`);
-  };
+👕 T-shirt: ${product.name}
+💰 Price: ₹${product.price}
+
+🖼 Product Image:
+${product.imageUrl}`;
+
+  window.open(
+    `https://wa.me/919172271693?text=${encodeURIComponent(message)}`
+  );
+};
+
 
   return (
-    <div className="card">
+    <div className="card" onClick={onClick}>
       <div className="card-image-wrap">
-        <img src={product.image} alt={product.name} />
-        <span className="card-badge">{product.category}</span>
+        <div className="card-image-wrap">
+            <img src={product.image} alt={product.name} />
+         </div>
+
+       <span className="card-badge">{product.category}</span>
       </div>
 
       <div className="card-body">
@@ -27,7 +36,13 @@ const ProductCard = ({ product }) => {
           <span>{product.sizes.join(", ")}</span>
         </div>
 
-        <button className="whatsapp-btn" onClick={handleOrder}>
+        <button
+            className="whatsapp-btn"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleOrder();
+            }}
+          >
           Order Now
         </button>
       </div>
